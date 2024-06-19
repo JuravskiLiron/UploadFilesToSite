@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - File Upload</title>
+    <link rel="stylesheet" href="~/styles/main.css" asp-append-version="true"/>
+</head>
+<body>
+    <h2 class="pagetitle pagetit">File Upload</h2>
+    <section class="pagetitle">
+        
+
+        <div class="file-upload-results">
+
+            @if (ViewBag.UploadSuccess != null)
+            {
+                <p class="success">@ViewBag.UploadSuccess</p>
+            }
+            @if (ViewBag.UploadError != null)
+            {
+                <p class="error">@ViewBag.UploadError</p>
+            }
+
+        </div>
+    </section>
+    <section class ="pagetitle">
+        <form method="post" enctype="multipart/form-data" action="/upload" class="file-upload-form">
+            <input type="file" name="files" multiple />
+            <button type="submit" class="uploadbutton"> Upload</button>
+        </form>
+    </section>
+</body>
+</html>
